@@ -301,7 +301,7 @@ foreach my $File ( @FILES ) {
 	    chomp;
 	    my @cols = parse_line(",",1,$_);
 
-	    next if $cols[2] eq "N/A" or $cols[2] == 0;
+	    next if !defined $cols[2] or $cols[2] eq "N/A" or $cols[2] == 0;
 
 	    # better reliability with year range
 	    my $hl = strip_quotes($cols[10]);
